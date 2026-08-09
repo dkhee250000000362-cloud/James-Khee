@@ -1,0 +1,482 @@
+:root {
+  color-scheme: dark;
+  --bg: #08090c;
+  --surface: rgba(15, 23, 42, 0.92);
+  --text: #7da3d4;
+  --muted: #94a3b8;
+  --accent: #38bdf8;
+  --accent-soft: rgba(56, 189, 248, 0.16);
+  --border: rgba(148, 163, 184, 0.18);
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.12), transparent 28%),
+    linear-gradient(180deg, #020617 0%, #0f172a 100%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+
+
+
+
+
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(6, 11, 26, 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+}
+
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+}
+
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+
+.site-nav a {
+  color: var(--muted);
+  transition: color 0.25s ease;
+}
+
+
+.site-nav a:hover {
+  color: var(--accent);
+}
+
+
+.section {
+  padding: 5rem 0;
+}
+
+
+.home{
+    min-height: calc(100vh - 94px);
+    display:flex;
+    align-items:center;
+}
+
+.home .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:5rem;
+}
+
+.home-content{
+    flex:1;
+}
+
+.home-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+}
+
+
+.intro {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+
+.home-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: baseline;
+  margin: 0;
+  font-size: clamp(3rem, 5vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.home-title .intro-line {
+  color: var(--muted);
+  font-size: 0.6em;
+}
+
+.typewriter {
+  display: inline-block;
+  min-height: 1.2em;
+  color: #ffffff;
+}
+
+.typewriter::after {
+  content: "|";
+  margin-left: 0.15rem;
+  color: var(--accent);
+  animation: blink 0.9s step-end infinite;
+}
+
+
+.description {
+  margin: 1.75rem 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 720px;
+}
+
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+
+.social-icons a:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+
+.id-card-wrapper{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    animation: floatCard 3.6s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+
+.lanyard{
+    width: 8px;
+    height: 180px;
+    background: #111;
+    position: relative;
+}
+
+.lanyard::before,
+.lanyard::after{
+    content: "";
+    width: 14px;
+    height: 14px;
+    background: #cfcfcf;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.lanyard::before{
+    top: 30px;
+}
+
+.lanyard::after{
+    top: 80px;
+}
+
+.clip{
+    width: 28px;
+    height: 28px;
+    border: 3px solid #666;
+    border-radius: 50%;
+    background: #111;
+
+    position: absolute;
+    top: 165px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.id-card{
+    width: 100%;
+    max-width: 240px;
+    background: #14162e;
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 15px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.id-card:hover {
+    transform: translateY(-10px) rotate(-3deg) scale(1.02);
+    box-shadow: 0 28px 60px rgba(2, 8, 23, 0.5);
+    border-color: rgba(56, 189, 248, 0.45);
+}
+
+.id-card-logo{
+    width: 70px;
+    max-width: 80px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
+
+.id-card-name{
+    color: white;
+    font-size: 24px;
+    margin: 10px 0 5px;
+}
+
+.id-card-title{
+    color: #38bdf8;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.school{
+    color: crimson;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.desc{
+    color: #cbd5e1;
+    font-size: 14px;
+    margin-top: 15px;
+}
+
+.about,
+.projects,
+.contact {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(148, 163, 184, 0.08);
+  border-radius: 24px;
+}
+.contact {
+  padding: 3rem 2rem;
+  text-align: left;
+}
+.about {
+  padding: 3rem 2rem;
+}
+
+
+
+
+@keyframes floatCard {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+
+  .site-nav {
+    gap: 0.9rem;
+  }
+
+
+  .section {
+    padding: 3rem 0;
+  }
+
+
+  .home {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .container {
+    width: calc(100% - 1.5rem);
+  }
+
+
+  .home h1 {
+    font-size: 2.6rem;
+  }
+
+
+  .social-icons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (max-width:768px){
+
+.home .container{
+
+    flex-direction:column;
+    text-align:center;
+    gap:3rem;
+
+}
+
+.home-content{
+
+    max-width:100%;
+
+}
+
+.home-image{
+
+    width:100%;
+
+}
+
+.social-icons{
+
+    justify-content:center;
+
+}
+
+.lanyard{
+
+    height:130px;
+
+}
+
+.clip{
+
+    top:118px;
+
+}
+
+}
+@media(max-width:480px){
+
+.home h1{
+
+    font-size:2.4rem;
+
+}
+
+.description{
+
+    font-size:.95rem;
+
+}
+
+.id-card{
+
+    max-width:210px;
+    padding:18px;
+
+}
+
+.id-card-name{
+
+    font-size:20px;
+
+}
+
+.id-card-title{
+
+    font-size:14px;
+
+}
+
+.school{
+
+    font-size:13px;
+
+}
+
+.desc{
+
+    font-size:12px;
+
+}
+
+.social-icons{
+
+    flex-direction:column;
+
+}
+
+.social-icons a{
+
+    width:100%;
+
+}
+
+}
+
+
