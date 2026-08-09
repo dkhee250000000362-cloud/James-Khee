@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Khee Portfolio</title>
+  <link rel="icon" type="image/png" href="images/GDGDOC KHEE.png">
+  <link rel="stylesheet" href="Home.css">
+</head> 
+
+<body> 
+  <header class="site-header">
+    <div class="container nav-container"> 
+   <a href ="Home.html"class="logo">James.</a>
+     <nav class="site-nav">
+      <a href="Home.html">Home</a>
+      <a href="About.html">About</a>
+      <a href="Activity.html">Activity  </a>
+      <a href="Project.html">Projects</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+    </div>
+  </header>
+<section class="home">
+
+<div class="container home">
+    <div class="home-content">
+
+        <p class="intro">Welcome!</p>
+
+    <h1 class="home-title">
+        <span class="intro-line">Hi, I'm James</span>
+        
+    </h1>
+
+    <p class="description">
+        I'm a passionate Information Technology student specializing
+        in web development and software solutions. I enjoy designing
+        modern, responsive websites and continuously learning new
+        technologies to create meaningful digital experiences.
+    </p>
+
+    <div class="social-icons">
+        <a href="https://github.com/dkhee250000000362-cloud">GitHub</a>
+        <a href="https://www.facebook.com/kyoujinzai">Facebook</a>
+        <a href="https://www.codecademy.com/profiles/DaveyJamesAKhee">Codecademy</a>
+    </div>
+
+</div>
+
+<div class="home-image">
+
+    <div class="id-card-wrapper">
+
+        <div class="lanyard"></div>
+
+        <div class="clip"></div>
+
+        <div class="id-card">
+
+            <img src="images/uic-logo.png"
+                 class="id-card-logo"
+                 alt="UIC Logo">
+
+            <h2 class="id-card-name typewriter" id="idCardName"></h2>
+
+            <p class="id-card-title typewriter" id="idCardTitle"></p>
+
+            <p class="school">
+                UNIVERSITY OF THE IMMACULATE CONCEPTION
+            </p>
+
+            <p class="desc">
+                Beginner in web development
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+const idCardName = document.getElementById("idCardName");
+const idCardTitle = document.getElementById("idCardTitle");
+
+const clearText = (element) => {
+    if (element) element.textContent = "";
+};
+
+const typeText = async (element, text, delay = 95) => {
+    if (!element) return;
+    element.textContent = "";
+    for (const char of text) {
+        element.textContent += char;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+};
+
+const typeWriterSequence = async () => {
+    while (true) {
+        await typeText(idCardName, "James Khee");
+        await typeText(idCardTitle, "BSIT STUDENT");
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        clearText(idCardName);
+        clearText(idCardTitle);
+    }
+};
+
+typeWriterSequence();
+</script>
+
+
+</body>
+</html>
