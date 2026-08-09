@@ -137,7 +137,6 @@ a {
     border-radius: 999px;
     background: rgba(56, 189, 248, 0.14);
     color: var(--accent);
-    text-transform: uppercase;
     letter-spacing: 0.24em;
     font-size: 0.76rem;
     font-weight: 700;
