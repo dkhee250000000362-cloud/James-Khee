@@ -1,72 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Davie JR's Menu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,500,700|Oswald:300,400,700" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="style.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James Khee Portfolio</title>
+  <link rel="icon" type="image/png" href="images/GDGDOC KHEE.png">
+  <link rel="stylesheet" href="Home.css">
+</head> 
 
-<body>
+<body> 
+  <header class="site-header">
+    <div class="container nav-container"> 
+   <a href ="Home.html"class="logo">James.</a>
+     <nav class="site-nav">
+      <a href="Home.html">Home</a>
+      <a href="about.html">about</a>
+      <a href="Activity.html">Activity  </a>
+      <a href="Project.html">Projects</a>
+      <a href="Contact.html">Contact</a>
+    </nav>
+    </div>
+  </header>
+<section class="home">
 
-  <!-- Navigation Section -->
+<div class="container home">
+    <div class="home-content">
 
-  <nav>
-    <img src="https://s3.amazonaws.com/codecademy-content/courses/web-101/unit-6/htmlcss1-img_burger-logo.svg" />
-    <span><a href="#">MENU</a></span>
-    <span><a href="#">NUTRITION</a></span>
-    <span><a href="#">ORDER</a></span>
-    <span><a href="#">LOCATIONS</a></span>
-  </nav>
+        <p class="intro">Welcome!</p>
 
-  <!-- Content Section -->
+    <h1 class="home-title">
+        <span class="intro-line">Hi, I'm James</span>
+        
+    </h1>
 
-  <div class="content">
+    <p class="description">
+        I'm a passionate Information Technology student specializing
+        in web development and software solutions. I enjoy designing
+        modern, responsive websites and continuously learning new
+        technologies to create meaningful digital experiences.
+    </p>
 
-    <!-- Content Header -->
-    
-    <div class="header">
-      <h1>BBQ BACON BURGER</h1>
+    <div class="social-icons">
+        <a href="https://github.com/dkhee250000000362-cloud">GitHub</a>
+        <a href="https://www.facebook.com/kyoujinzai">Facebook</a>
+        <a href="https://www.codecademy.com/profiles/DaveyJamesAKhee">Codecademy</a>
     </div>
 
-    <!-- Content Body -->
+</div>
 
-    <div class="body">
-      <p>
-        Our BBQ Bacon Burger features our special house ground blend of wagyu and sirloin, spiced perfectly, and finished off with just a drop of white truffle oil. A butter grilled brioche bun layered with roasted red onion, perfectly crispy pork belly, and our hickory smoked BBQ sauce.
-      </p>
+<div class="home-image">
 
-      <!-- Order Button -->
+    <div class="id-card-wrapper">
 
-      <a href="#" class="button">ORDER NOW</a>
+        <div class="lanyard"></div>
 
-      <!-- Nutrition Information -->
-      
-      <ul class="nutrition">
-        <li>
-          <span class="category">CALORIES</span>
-          <span class="value">678</span>
-        </li>
-        <li>
-          <span class="category">FAT</span>
-          <span class="value">32</span>
-        </li>
-        <li>
-          <span class="category">PROTEIN</span>
-          <span class="value">8</span>
-        </li>
-        <li>
-          <span class="category">CARBOHYDRATES</span>
-          <span class="value">34</span>
-        </li>
-        <li>
-          <span class="category">SODIUM</span>
-          <span class="value">112</span>
-        </li>
-      </ul>
+        <div class="clip"></div>
+
+        <div class="id-card">
+
+            <img src="images/uic-logo.png"
+                 class="id-card-logo"
+                 alt="UIC Logo">
+
+            <h2 class="id-card-name typewriter" id="idCardName"></h2>
+
+            <p class="id-card-title typewriter" id="idCardTitle"></p>
+
+            <p class="school">
+                UNIVERSITY OF THE IMMACULATE CONCEPTION
+            </p>
+
+            <p class="desc">
+                Beginner in web development
+            </p>
+
+        </div>
+
     </div>
-  </div>
-  
+
+</div>
+
+</div>
+
+</section>
+
+<script>
+const idCardName = document.getElementById("idCardName");
+const idCardTitle = document.getElementById("idCardTitle");
+
+const clearText = (element) => {
+    if (element) element.textContent = "";
+};
+
+const typeText = async (element, text, delay = 95) => {
+    if (!element) return;
+    element.textContent = "";
+    for (const char of text) {
+        element.textContent += char;
+        await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+};
+
+const typeWriterSequence = async () => {
+    while (true) {
+        await typeText(idCardName, "James Khee");
+        await typeText(idCardTitle, "BSIT STUDENT");
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        clearText(idCardName);
+        clearText(idCardTitle);
+    }
+};
+
+typeWriterSequence();
+</script>
+
+
 </body>
 </html>
