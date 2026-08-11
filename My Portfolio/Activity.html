@@ -11,13 +11,18 @@
     <header class="site-header"> 
         <div class="container nav-container"> 
             <a href="Activity.html" class="logo">James.</a>
-            <nav class="site-nav">
+            <nav class="site-nav" id="siteNav">
                 <a href="Home.html">Home</a>
-                <a href="about.html">about</a>
+                <a href="about.html">About</a>
                 <a href="Activity.html">Activity</a>
                 <a href="Project.html">Projects</a>
                 <a href="Contact.html">Contact</a>
             </nav>
+            <div class="nav-actions">
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false">
+                    <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+                </button>
+            </div>
         </div>
     </header>
    
@@ -113,5 +118,24 @@
 
 
     </section>
+
+<script>
+const navToggle = document.getElementById("navToggle");
+const navContainer = document.querySelector(".nav-container");
+
+navToggle.addEventListener("click", () => {
+    const isOpen = navContainer.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+    navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+});
+
+document.querySelectorAll(".site-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+        navContainer.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+    });
+});
+</script>
 </body>
 </html>
