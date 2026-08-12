@@ -1,3 +1,6 @@
+/* ==============================
+   CSS Variables
+   ============================== */
 :root {
   color-scheme: dark;
   --bg: #08090c;
@@ -9,16 +12,23 @@
   --border: rgba(148, 163, 184, 0.18);
 }
 
-
+/* ==============================
+   Global Styles
+   ============================== */
 * {
   box-sizing: border-box;
 }
 
+.section {
+  padding: 5rem 0;
+}
 
+/* ==============================
+   Base: html & body
+   ============================== */
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   margin: 0;
@@ -31,30 +41,30 @@ body {
   line-height: 1.6;
 }
 
-
-
-
-
-
+/* ==============================
+   SVG & Links
+   ============================== */
 svg {
   display: block;
   max-width: 100%;
 }
-
 
 a {
   color: inherit;
   text-decoration: none;
 }
 
-
+/* ==============================
+   Container
+   ============================== */
 .container {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
 }
 
-
-
+/* ==============================
+   Header
+   ============================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -64,14 +74,15 @@ a {
   border-bottom: 1px solid rgba(148, 163, 184, 0.08);
 }
 
-
+/* ==============================
+   Navbar
+   ============================== */
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
 }
-
 
 .logo {
   font-size: 1.4rem;
@@ -80,53 +91,120 @@ a {
   color: #ffffff;
 }
 
+.nav-actions {
+  display: none;
+}
 
+/* ==============================
+   Desktop Navigation
+   ============================== */
 .site-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
 }
 
-
 .site-nav a {
   color: var(--muted);
   transition: color 0.25s ease;
 }
 
-
 .site-nav a:hover {
   color: var(--accent);
 }
 
-
-.section {
-  padding: 5rem 0;
+/* ==============================
+   Hamburger Button
+   ============================== */
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 14px;
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-
-.home{
-    min-height: calc(100vh - 94px);
-    display:flex;
-    align-items:center;
+.nav-toggle:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
-.home .container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:5rem;
+.nav-toggle:active {
+  transform: scale(0.94);
 }
 
-.home-content{
-    flex:1;
+.nav-toggle-bars {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 20px;
+  height: 18px;
 }
 
-.home-image{
-    flex:1;
-    display:flex;
-    justify-content:center;
+.nav-toggle-bars span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--muted);
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
 }
 
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle-bars span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ==============================
+   Mobile Navigation
+   The mobile nav layout, collapse, and open/close behavior are
+   defined in the responsive section below.
+   ============================== */
+
+/* ==============================
+   Home / Hero Section
+   ============================== */
+.home {
+  min-height: calc(100vh - 94px);
+  display: flex;
+  align-items: center;
+}
+
+.home .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* ==============================
+   Home Content
+   ============================== */
+.home-content {
+  flex: 1;
+}
+
+.home-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
 
 .intro {
   margin-bottom: 1rem;
@@ -135,7 +213,6 @@ a {
   letter-spacing: 0.24em;
   font-weight: 700;
 }
-
 
 .home-title {
   display: flex;
@@ -165,7 +242,6 @@ a {
   animation: blink 0.9s step-end infinite;
 }
 
-
 .description {
   margin: 1.75rem 0;
   color: var(--muted);
@@ -173,13 +249,14 @@ a {
   max-width: 720px;
 }
 
-
+/* ==============================
+   Social Icons
+   ============================== */
 .social-icons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
 }
-
 
 .social-icons a {
   display: inline-flex;
@@ -193,117 +270,121 @@ a {
   transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
-
 .social-icons a:hover {
   transform: translateY(-2px);
   border-color: var(--accent);
   background: var(--accent-soft);
 }
 
-
-.id-card-wrapper{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    animation: floatCard 3.6s ease-in-out infinite;
-    transform-style: preserve-3d;
+/* ==============================
+   ID Card
+   ============================== */
+.id-card-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatCard 3.6s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
-
-.lanyard{
-    width: 8px;
-    height: 180px;
-    background: #111;
-    position: relative;
-}
-
-.lanyard::before,
-.lanyard::after{
-    content: "";
-    width: 14px;
-    height: 14px;
-    background: #cfcfcf;
-    border-radius: 50%;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.lanyard::before{
-    top: 30px;
-}
-
-.lanyard::after{
-    top: 80px;
-}
-
-.clip{
-    width: 28px;
-    height: 28px;
-    border: 3px solid #666;
-    border-radius: 50%;
-    background: #111;
-
-    position: absolute;
-    top: 165px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-.id-card{
-    width: 100%;
-    max-width: 240px;
-    background: #14162e;
-    border-radius: 20px;
-    padding: 25px;
-    margin-top: 15px;
-    text-align: center;
-    box-shadow: 0 15px 30px rgba(0,0,0,.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+.id-card {
+  width: 100%;
+  max-width: 240px;
+  background: #14162e;
+  border-radius: 20px;
+  padding: 25px;
+  margin-top: 15px;
+  text-align: center;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .id-card:hover {
-    transform: translateY(-10px) rotate(-3deg) scale(1.02);
-    box-shadow: 0 28px 60px rgba(2, 8, 23, 0.5);
-    border-color: rgba(56, 189, 248, 0.45);
+  transform: translateY(-10px) rotate(-3deg) scale(1.02);
+  box-shadow: 0 28px 60px rgba(2, 8, 23, 0.5);
+  border-color: rgba(56, 189, 248, 0.45);
 }
 
-.id-card-logo{
-    width: 70px;
-    max-width: 80px;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto 15px;
+.id-card-logo {
+  width: 70px;
+  max-width: 80px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 15px;
 }
 
-.id-card-name{
-    color: white;
-    font-size: 24px;
-    margin: 10px 0 5px;
+.id-card-name {
+  color: white;
+  font-size: 24px;
+  margin: 10px 0 5px;
 }
 
-.id-card-title{
-    color: #38bdf8;
-    font-weight: bold;
-    margin-bottom: 10px;
+.id-card-title {
+  color: #38bdf8;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.school{
-    color: crimson;
-    font-weight: bold;
-    line-height: 1.4;
+.school {
+  color: crimson;
+  font-weight: bold;
+  line-height: 1.4;
 }
 
-.desc{
-    color: #cbd5e1;
-    font-size: 14px;
-    margin-top: 15px;
+.desc {
+  color: #cbd5e1;
+  font-size: 14px;
+  margin-top: 15px;
 }
 
+/* ==============================
+   Lanyard & Clip
+   ============================== */
+.lanyard {
+  width: 8px;
+  height: 180px;
+  background: #111;
+  position: relative;
+}
+
+.lanyard::before,
+.lanyard::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: #cfcfcf;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.lanyard::before {
+  top: 30px;
+}
+
+.lanyard::after {
+  top: 80px;
+}
+
+.clip {
+  width: 28px;
+  height: 28px;
+  border: 3px solid #666;
+  border-radius: 50%;
+  background: #111;
+  position: absolute;
+  top: 165px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ==============================
+   About / Projects / Contact
+   ============================== */
 .about,
 .projects,
 .contact {
@@ -311,17 +392,19 @@ a {
   border: 1px solid rgba(148, 163, 184, 0.08);
   border-radius: 24px;
 }
+
+.about,
 .contact {
   padding: 3rem 2rem;
+}
+
+.contact {
   text-align: left;
 }
-.about {
-  padding: 3rem 2rem;
-}
 
-
-
-
+/* ==============================
+   Animations / Keyframes
+   ============================== */
 @keyframes floatCard {
   0%,
   100% {
@@ -338,22 +421,76 @@ a {
   }
 }
 
-@media (max-width: 780px) {
+/* ==============================
+   Responsive
+   ============================== */
+
+/* ---------- Tablet (≤800px): hamburger + mobile nav ---------- */
+@media (max-width: 800px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  /* Keep logo LEFT and hamburger RIGHT on the same horizontal row. */
   .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 0 2rem;
   }
 
+  .logo {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
 
+  .nav-actions {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Menu opens BELOW the header, right-aligned as a vertical column. */
   .site-nav {
-    gap: 0.9rem;
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 1rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.35s ease, opacity 0.35s ease, padding 0.35s ease;
   }
 
+  .nav-container.open .site-nav {
+    max-height: 280px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  .nav-container.open .site-nav a {
+    font-size: 1.05rem;
+  }
+}
+
+/* ---------- Tablet (≤780px): compact sections ---------- */
+@media (max-width: 780px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
   .section {
     padding: 3rem 0;
   }
-
 
   .home {
     min-height: auto;
@@ -361,121 +498,98 @@ a {
   }
 }
 
+/* ---------- Mobile (≤768px): hero stacks vertically ---------- */
+@media (max-width: 768px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
+  .home .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .home-content {
+    max-width: 100%;
+  }
+
+  .home-image {
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .lanyard {
+    height: 130px;
+  }
+
+  .clip {
+    top: 118px;
+  }
+}
+
+/* ---------- Mobile (≤520px) ---------- */
 @media (max-width: 520px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   .container {
     width: calc(100% - 1.5rem);
   }
 
-
   .home h1 {
     font-size: 2.6rem;
   }
-
 
   .social-icons {
     flex-direction: column;
     align-items: stretch;
   }
 }
-@media (max-width:768px){
 
-.home .container{
+/* ---------- Small mobile (≤480px) ---------- */
+@media (max-width: 480px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
-    flex-direction:column;
-    text-align:center;
-    gap:3rem;
+  .home h1 {
+    font-size: 2.4rem;
+  }
 
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .id-card {
+    max-width: 210px;
+    padding: 18px;
+  }
+
+  .id-card-name {
+    font-size: 20px;
+  }
+
+  .id-card-title {
+    font-size: 14px;
+  }
+
+  .school {
+    font-size: 13px;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  .social-icons a {
+    width: 100%;
+  }
 }
-
-.home-content{
-
-    max-width:100%;
-
-}
-
-.home-image{
-
-    width:100%;
-
-}
-
-.social-icons{
-
-    justify-content:center;
-
-}
-
-.lanyard{
-
-    height:130px;
-
-}
-
-.clip{
-
-    top:118px;
-
-}
-
-}
-@media(max-width:480px){
-
-.home h1{
-
-    font-size:2.4rem;
-
-}
-
-.description{
-
-    font-size:.95rem;
-
-}
-
-.id-card{
-
-    max-width:210px;
-    padding:18px;
-
-}
-
-.id-card-name{
-
-    font-size:20px;
-
-}
-
-.id-card-title{
-
-    font-size:14px;
-
-}
-
-.school{
-
-    font-size:13px;
-
-}
-
-.desc{
-
-    font-size:12px;
-
-}
-
-.social-icons{
-
-    flex-direction:column;
-
-}
-
-.social-icons a{
-
-    width:100%;
-
-}
-
-}
-
-

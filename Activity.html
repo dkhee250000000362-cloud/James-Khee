@@ -6,18 +6,24 @@
     <title>James Khee Portfolio</title> 
     <link rel="icon" type="image/png" href="images/GDGDOC KHEE.png">
     <link rel="stylesheet" href="Activity.css">
+    <link rel="stylesheet" href="cursor.css">
 </head>
 <body>
     <header class="site-header"> 
         <div class="container nav-container"> 
             <a href="Activity.html" class="logo">James.</a>
-            <nav class="site-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">about</a>
+            <nav class="site-nav" id="siteNav">
+                <a href="Home.html">Home</a>
+                <a href="about.html">About</a>
                 <a href="Activity.html">Activity</a>
                 <a href="Project.html">Projects</a>
                 <a href="Contact.html">Contact</a>
             </nav>
+            <div class="nav-actions">
+                <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-controls="siteNav" aria-expanded="false">
+                    <span class="nav-toggle-bars"><span></span><span></span><span></span></span>
+                </button>
+            </div>
         </div>
     </header>
    
@@ -46,8 +52,8 @@
                 <span>HTML</span>
             </div>
 
-            <a href="#" class="activity-btn">
-                View Activity → <a href="https://dkhee250000000362-cloud.github.io/dkhee_250000000362-cloud.github.io/activity1/index.html">Fashion-blog</a>
+            <a href="activity1/index.html" class="activity-btn">
+                View Activity → Fashion-blog
             </a>
 
         </div>
@@ -76,8 +82,8 @@
                 
             </div>
 
-            <a href="#" class="activity-btn">
-                View Activity → <a href="https://dkhee250000000362-cloud.github.io/dkhee_250000000362-cloud.github.io/winefestival/index.html">Wine-festival</a>
+            <a href="winefestival/index.html" class="activity-btn">
+                View Activity → Wine-festival
             </a>
 
         </div>
@@ -105,13 +111,34 @@
                 <span>CSS</span>
             </div>
 
-            <a href="#" class="activity-btn">
-                View Activity → <a href="https://dkhee250000000362-cloud.github.io/dkhee_250000000362-cloud.github.io/daviesburger/index.html">Davies Burger</a>
+            <a href="daviesburger/index.html" class="activity-btn">
+                View Activity → Davies Burger
             </a>
 
         </div>
 
 
     </section>
+
+<script>
+const navToggle = document.getElementById("navToggle");
+const navContainer = document.querySelector(".nav-container");
+
+navToggle.addEventListener("click", () => {
+    const isOpen = navContainer.classList.toggle("open");
+    navToggle.setAttribute("aria-expanded", isOpen);
+    navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+});
+
+document.querySelectorAll(".site-nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+        navContainer.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        navToggle.setAttribute("aria-label", "Open menu");
+    });
+});
+</script>
+
+<script src="cursor.js"></script>
 </body>
 </html>
